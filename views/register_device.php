@@ -191,133 +191,13 @@ if (isset($_GET['get_models_by_brand']) && isset($_GET['brand_id'])) {
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/form.css" />
+
     <title>Registrar Equipo TI - ACEMA</title>
     <style>
-        h1 {
-            text-align: center;
-            color: #222;
-            margin-bottom: 2rem;
-        }
-
-        form {
-            max-width: 960px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 5rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .form-column {
-            flex: 1 1 48%;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            font-weight: 500;
-            font-size: 0.9rem;
-            margin-bottom: 0.2rem;
-            color: #444;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        input[type="file"],
-        select {
-            padding: 0.5rem 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            background-color: #fafafa;
-            transition: border 0.2s;
-        }
-
-        input:focus,
-        select:focus {
-            border-color: #215ba0;
-            outline: none;
-            background-color: #fff;
-        }
-
-        button {
-            margin: 1.5rem auto 0;
-            background-color: #215ba0;
-            color: white;
-            font-size: 1rem;
-            padding: 0.7rem 1.5rem;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background-color: rgb(30, 108, 190);
-        }
-
-        .btn-back {
-            display: inline-block;
-            padding: 5px 10px;
-            background-color: #215ba0;
-            color: white;
-            text-decoration: none;
-            border: none;
-            margin-bottom: 5px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            cursor: pointer;
-        }
-
-        .btn-back:hover {
-            background-color: #2980b9;
-            transform: scale(1.05);
-        }
-
-        h2 {
-             color: #215ba0;
-        }
-        
-
-        .header {
-            margin-top: 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1em;
-        }
-
-        @media (max-width: 768px) {
-            .form-column {
-                flex: 1 1 100%;
-            }
-            form {
-                padding: 1.5rem;
-                flex-direction: column;
-                gap: 0;
-            }
-        }
-        @media (max-width: 480px) {
-            form {
-                padding: 1.5rem;
-                margin-bottom: 100px;
-            }
-            .form-group label, .form-group input, .form-group select {
-                font-size: 1em;
-            }
-        }
+       
     </style>
 </head>
 

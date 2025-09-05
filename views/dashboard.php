@@ -95,14 +95,14 @@ $pendientes = 0; // Cambia esto por tu consulta real a la base de datos
   </script>
 
   <div class="main-content">
-    <div class="card">
+    <div class="welcome-card">
       <h1>Bienvenido, <?php echo $_SESSION['user']['first_name']; ?></h1>
       <p><strong>Dashboard principal.</strong> Explora el menú lateral para realizar acciones o crea tarjetas con
         accesos directos.</p>
     </div>
 
     <div class="shortcuts-container">
-      <!-- <div class="shortcut-card" data-link="identificar.php">
+      <div class="shortcut-card" data-link="identificar.php">
         <i class="fas fa-clock"></i>
         <span>Asistencias</span>
       </div>
@@ -117,7 +117,7 @@ $pendientes = 0; // Cambia esto por tu consulta real a la base de datos
           position: absolute;
           top: 8px;
           right: 12px;
-          background: #e74c3c;
+          background: #fde9b3ff;
           color: #fff;
           border-radius: 50%;
           width: 32px;
@@ -137,7 +137,7 @@ $pendientes = 0; // Cambia esto por tu consulta real a la base de datos
       <div class="shortcut-card" data-link="create_project.php">
         <i class="fas fa-user-check"></i>
         <span>Proyectos</span>
-      </div> -->
+      </div>
       <div class="shortcut-card" data-link="ti.php">
         <i class="fas fa-laptop"></i>
         <span>Inventario</span>
@@ -145,6 +145,11 @@ $pendientes = 0; // Cambia esto por tu consulta real a la base de datos
       <div class="shortcut-card" onclick="window.location.href='preoperation_vehicle.php'">
         <i class="fas fa-clipboard-check"></i>
         <span>Preoperacional Vehículo</span>
+      </div>
+
+      <div class="shortcut-card" onclick="window.location.href=''">
+        <i class="fas fa-plus"></i>
+        <span></span>
       </div>
 
 
