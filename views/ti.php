@@ -156,7 +156,7 @@ foreach ($equipos as $id => $purchase_date) {
   </script>
 
   <div class="main-content">
-    <div class="card">
+    <div class="welcome-card">
       <h1>Bienvenido, <?php echo $_SESSION['user']['first_name']; ?></h1>
       <p><strong>Dashboard principal.</strong> Explora el menú lateral para realizar acciones o crea tarjetas con
         accesos directos.</p>
@@ -169,7 +169,7 @@ foreach ($equipos as $id => $purchase_date) {
       </div>
 
       <div class="shortcut-card" data-link="register_other_device.php">
-        <i class="fas fa-laptop"></i>
+        <i class="fas fa-camera"></i>
         <span>Registar otros equipos</span>
       </div>
       

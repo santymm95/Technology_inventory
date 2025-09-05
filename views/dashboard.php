@@ -147,16 +147,16 @@ $pendientes = 0; // Cambia esto por tu consulta real a la base de datos
         <span>Preoperacional Vehículo</span>
       </div>
 
+      <div class="shortcut-card" data-link="configuration.php">
+        <i class="fas fa-cog"></i>
+        <span>Admin</span>
+      </div> 
+
       <div class="shortcut-card" onclick="window.location.href=''">
         <i class="fas fa-plus"></i>
         <span></span>
       </div>
 
-
-      <!-- <div class="shortcut-card" data-link="configuration.php">
-        <i class="fas fa-cog"></i>
-        <span>Admin</span>
-      </div> -->
 
 
 

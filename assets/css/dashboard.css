@@ -58,8 +58,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
 }
-
-.shortcut-card {
+ .shortcut-card {
   background: linear-gradient(135deg, #ffffff, #e9f0f8);
   border-radius: 16px;
   padding: 2rem 1rem;
@@ -74,7 +73,20 @@ body {
   overflow: hidden;
 }
 
-/* efecto hover con degradado brillante */
+/* borde superior degradado */
+.shortcut-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px; /* grosor del borde */
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background: linear-gradient(90deg, #215ba0, #b6ecf8);
+}
+
+/* efecto hover con brillo */
 .shortcut-card::before {
   content: "";
   position: absolute;
@@ -100,7 +112,7 @@ body {
 
 .shortcut-card i {
   font-size: 2.4rem;
-  background: linear-gradient(90deg, #2176ae, #00b4db);
+  background: linear-gradient(90deg, #215ba0, #9ccbd1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.6rem;

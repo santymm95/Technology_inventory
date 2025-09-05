@@ -45,6 +45,78 @@ LEFT JOIN graphics_cards gc ON d.graphics_card_id = gc.id
 LEFT JOIN statuses st ON d.status_id = st.id
 ORDER BY d.internal_number ASC";
 $res = $conn->query($sql);
+
+// CSV download handler
+if (isset($_GET['download']) && $_GET['download'] === 'csv') {
+    header('Content-Type: text/csv; charset=utf-8');
+    header('Content-Disposition: attachment; filename="matriz_general.csv"');
+    $output = fopen('php://output', 'w');
+    // Encabezados
+    fputcsv($output, [
+        'Número Interno', 'Asignado a', 'Marca', 'Serial', 'Modelo', 'Procesador', 'RAM', 'Almacenamiento',
+        'Tipo', 'Gráfica', 'Accesorios', 'Estado', 'Valor', 'Activo'
+    ]);
+    // Consulta igual que la matriz
+    $sql = "SELECT 
+        d.internal_number,
+        (
+            SELECT CONCAT_WS(' ', u.first_name, u.last_name)
+            FROM actas a
+            LEFT JOIN users u ON a.user_id = u.id
+            WHERE a.device_id = d.id
+            ORDER BY a.fecha_entrega DESC
+            LIMIT 1
+        ) AS responsable,
+        b.name AS marca,
+        d.serial,
+        m.name AS modelo,
+        p.name AS procesador,
+        r.name AS ram,
+        s.name AS almacenamiento,
+        pt.name AS tipo,
+        gc.name AS grafica,
+        (
+            SELECT GROUP_CONCAT(a.name SEPARATOR ', ')
+            FROM device_accessories da
+            JOIN accessories a ON da.accessory_id = a.id
+            WHERE da.device_id = d.id
+        ) AS accesorios,
+        st.name AS estado,
+        d.device_value
+    FROM devices d
+    LEFT JOIN models m ON d.model_id = m.id
+    LEFT JOIN brands b ON d.brand_id = b.id
+    LEFT JOIN processors p ON d.processor_id = p.id
+    LEFT JOIN rams r ON d.ram_id = r.id
+    LEFT JOIN storages s ON d.storage_id = s.id
+    LEFT JOIN provider_types pt ON d.provider_type_id = pt.id
+    LEFT JOIN graphics_cards gc ON d.graphics_card_id = gc.id
+    LEFT JOIN statuses st ON d.status_id = st.id
+    ORDER BY d.internal_number ASC";
+    $res_csv = $conn->query($sql);
+    while ($row = $res_csv->fetch_assoc()) {
+        $activo = trim($row['responsable']) ? 'Activo' : 'Disponible';
+        $valor = is_numeric($row['device_value']) ? $row['device_value'] : '';
+        fputcsv($output, [
+            $row['internal_number'],
+            $row['responsable'],
+            $row['marca'],
+            $row['serial'],
+            $row['modelo'],
+            $row['procesador'],
+            $row['ram'],
+            $row['almacenamiento'],
+            $row['tipo'],
+            $row['grafica'],
+            $row['accesorios'],
+            $row['estado'],
+            $valor,
+            $activo
+        ]);
+    }
+    fclose($output);
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -137,6 +209,7 @@ $res = $conn->query($sql);
 <body>
 <?php include 'layout.php'; ?>
 <div class="matriz-container">
+   
     <table class="institution-header" style="width:100%;margin-bottom:2em;">
         <tr>
             <td style="width:120px;">
@@ -214,7 +287,15 @@ $res = $conn->query($sql);
             <?php endwhile; ?>
         </tbody>
     </table>
+    
 </div>
+ <!-- Botón para descargar CSV -->
+  <br>
+    <div style="text-align:right;margin-bottom:1em;">
+        <a href="matriz_general.php?download=csv" style="background:#215ba0;color:#fff;padding:0.6em 1.3em;border-radius:7px;text-decoration:none;font-weight:500;box-shadow:0 1px 4px rgba(33,91,160,0.10);">
+            Descargar CSV
+        </a>
+    </div>
 <script>
 // Simple sort para tabla HTML
 document.addEventListener('DOMContentLoaded', function() {

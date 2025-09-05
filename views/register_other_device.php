@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php include 'layout.php'; ?>
   
   <div class="main-content">
-    <div class="card">
+    <div class="welcome-card">
       <h1>Bienvenido, <?php echo $_SESSION['user']['first_name']; ?></h1>
       <p><strong>Dashboard principal.</strong> Explora el menú lateral para realizar acciones o crea tarjetas con
         accesos directos.</p>
