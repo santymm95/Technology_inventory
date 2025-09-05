@@ -1,0 +1,67 @@
+/* Estilo general del body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Contenedor principal */
+.container {
+    width: 95%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+/* Tabla con estilo moderno */
+.styled-table {
+    width: 90%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    min-width: 800px;
+    background-color: #215ba0;
+    color: black;
+}
+
+.styled-table thead tr {
+    background-color: #1e88e5;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #dddddd;
+    vertical-align: top;
+}
+
+.styled-table tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tr:hover {
+    background-color: #e1f5fe;
+}
+
+/* Responsivo en móviles */
+@media (max-width: 768px) {
+    .styled-table {
+        font-size: 0.85rem;
+        min-width: 100%;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}

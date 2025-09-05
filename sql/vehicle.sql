@@ -1,0 +1,33 @@
+-- Tabla para registrar información de vehículos
+
+CREATE TABLE `vehicle` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `placa` varchar(20) NOT NULL,
+  `carroceria` varchar(50) DEFAULT NULL,
+  `marca` varchar(50) NOT NULL,
+  `capacidad` varchar(20) DEFAULT NULL,
+  `tipo_vehiculo` varchar(50) NOT NULL,
+  `servicio` varchar(30) DEFAULT NULL,
+  `linea` varchar(50) DEFAULT NULL,
+  `declaracion_importacion` varchar(50) DEFAULT NULL,
+  `modelo` varchar(10) DEFAULT NULL,
+  `cilindraje` varchar(20) DEFAULT NULL,
+  `registro_vin` varchar(50) DEFAULT NULL,
+  `potencia_hp` varchar(20) DEFAULT NULL,
+  `motor` varchar(50) DEFAULT NULL,
+  `numero_chasis` varchar(50) DEFAULT NULL,
+  `color` varchar(30) DEFAULT NULL,
+  `no_matricula` varchar(30) DEFAULT NULL,
+  `seguro_obligatorio` varchar(50) DEFAULT NULL,
+  `poliza_seguro` varchar(50) DEFAULT NULL,
+  `tecnico_mecanica` varchar(50) DEFAULT NULL,
+  `tarjeta_operacion` varchar(50) DEFAULT NULL,
+  `proveedor_nombre` varchar(100) DEFAULT NULL,
+  `proveedor_nit` varchar(30) DEFAULT NULL,
+  `proveedor_representante` varchar(100) DEFAULT NULL,
+  `proveedor_direccion` varchar(100) DEFAULT NULL,
+  `proveedor_telefono` varchar(30) DEFAULT NULL,
+  `proveedor_email` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `placa` (`placa`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

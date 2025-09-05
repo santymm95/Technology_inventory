@@ -1,0 +1,188 @@
+/* acta_view.css */
+/* acta_view.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+
+.acta-container {
+    width: 60%; 
+    padding: 150px;
+    margin: 2em auto;
+    padding: 1em 2em;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+}
+
+h2, h3 {
+    color: #215ba0;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.acta-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+h2, h3 {
+    color: #215ba0;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.acta-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.acta-card {
+    background: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    width: 250px;
+    padding: 1em;
+    cursor: pointer;
+    transition: transform 0.2s ease, border 0.3s;
+    box-shadow: 0 2px 8px rgba(33, 91, 160, 0.05);
+}
+
+.acta-card:hover {
+    transform: scale(1.02);
+
+}
+
+.acta-card.selected {
+    border: 2px solid #215ba0;
+    background-color: #f0f6ff;
+}
+
+.acta-card-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #215ba0;
+    margin-bottom: 0.5em;
+    
+}
+
+.acta-card-info {
+    font-size: 0.9em;
+    color: #555;
+    
+    
+}
+
+p{
+    text-align: justify;
+}
+
+.acta-table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-bottom: 2em;
+    font-size: 0.95em;
+    
+}
+
+.acta-table th, .acta-table td {
+    border: 1px solid #dbe4f3;
+    padding: 10px;
+    text-align: left;
+}
+
+.acta-table th {
+    background-color: #ecf2fc;
+    color: #215ba0;
+    width: 200px;
+}
+
+.pdf-header-table {
+    width: 100%;
+    border: none;
+    text-align: center;
+    margin-bottom: 1em;
+    border: 1px solid #dbe4f3;
+    margin-top: 0px;
+}
+
+.pdf-header-logo-img {
+    max-width: 130px;
+}
+
+.pdf-header-title {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #215ba0;
+}
+
+.pdf-header-info-table td {
+    padding: 2px 0;
+    font-size: 0.85em;
+}
+
+.politicas {
+    background: #f9fbff;
+    padding: 1em;
+    border-left: 5px solid #215ba0;
+    margin-bottom: 2em;
+}
+
+.politicas ul {
+    margin-top: 0.5em;
+    padding-left: 1.5em;
+    list-style: disc;
+}
+
+.firma-section {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.firma-box {
+    border: 1px dashed #ccc;
+    padding: 1em;
+    width: 280px;
+    text-align: center;
+    background-color: #fafafa;
+    border-radius: 8px;
+}
+
+.firma-box img {
+    max-width: 100%;
+    border-radius: 6px;
+    margin-top: 0.5em;
+    box-shadow: 0 2px 8px rgba(33, 91, 160, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .acta-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .acta-card {
+        width: 90%;
+    }
+
+    .firma-section {
+        flex-direction: column;
+        align-items: center;
+    }
+}

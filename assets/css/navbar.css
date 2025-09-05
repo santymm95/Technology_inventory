@@ -1,0 +1,432 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar-modern {
+  width: 100%;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-logo img {
+  height: 50px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-icon {
+  width: 42px;
+  height: 42px;
+  background-color: #215ba0;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.user-icon:hover {
+  transform: scale(1.1);
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #40a335;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 80px;
+  height: calc(100vh - 60px); /* Asegura que el sidebar ocupe toda la altura de la pantalla */
+  background-color: #215ba0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: width 0.4s ease;
+  overflow-y: auto; /* Habilitar el scroll vertical */
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .nav-items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    top: auto;
+    bottom: 0;
+    overflow-x: auto; /* Permite el desplazamiento horizontal si el contenido es más ancho */
+  }
+
+  .sidebar .nav-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Esto permite que los elementos del sidebar se acomoden en varias filas si es necesario */
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .sidebar .nav-item {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .sidebar .nav-item span {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 80px 20px 80px 20px;
+  }
+
+  .sidebar:hover {
+    width: 100%;
+  }
+
+  .sidebar:hover ~ .main-content {
+    margin-left: 0;
+  }
+}
+
+
+.sidebar:hover {
+  width: 220px;
+  align-items: flex-start;
+}
+
+.nav-item {
+  width: 100%;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.nav-item:hover {
+  background: linear-gradient(90deg, #215ba0, #0099e5);
+  transform: translateX(5px);
+  opacity: 1;
+}
+
+.nav-item i {
+  min-width: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.nav-item span {
+  display: inline-block;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.sidebar:hover .nav-item span {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Contenido principal */
+.main-content {
+  margin-left: 80px;
+  padding: 100px 30px 30px 30px;
+  transition: margin-left 0.4s ease;
+}
+
+.sidebar:hover ~ .main-content {
+  margin-left: 220px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #215ba0;
+}
+
+i {
+  margin-right: 3px;
+}
+
+/* Botón del asistente */
+.asistente-boton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0074D9;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 9998;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.asistente-boton.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mensaje-ayuda {
+  font-size: 14px;
+}
+
+/* Popup del asistente */
+.asistente-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 9999;
+}
+
+.asistente-popup.mostrar {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.asistente-header {
+  background-color: #215ba0;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.asistente-body {
+  padding: 12px;
+  font-size: 14px;
+  color: #333;
+}
+
+.asistente-body ul {
+  margin-top: 8px;
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+.asistente-body ul li:hover {
+  background-color: #40a33586;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#cerrar-asistente {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Estilos para el modo oscuro */
+
+
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .navbar-modern {
+  background: rgba(104, 104, 104, 0.95);
+  color: #f0f0f0;
+}
+
+body.dark-mode .sidebar {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode .nav-item {
+  color: #f0f0f0;
+}
+
+body.dark-mode .nav-item:hover {
+  background: linear-gradient(90deg, #444, #666);
+}
+
+body.dark-mode .sidebar i{
+  color:#215ba0;
+}
+
+body.dark-mode .shortcut-card{
+  background: #1f1f1f;
+  color: #40a335;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+#theme-toggle{
+  background: none;
+  border: none;
+  color: #f0f0f0;
+  font-size: 18px;
+  cursor: pointer;
+}
+#theme-toggle:hover{
+  transform: scale(1.3);
+  transition: transform 0.3s ease;
+
+}
+
+
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .navbar-modern {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: auto;
+    padding: 15px 20px;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    top: auto;
+    bottom: 0;
+  }
+  
+
+  .asistente-boton{
+    background-color: #40a335;
+    margin-bottom: 50px;
+  }
+
+  .sidebar .nav-item {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .sidebar .nav-item span {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 80px 20px 80px 20px;
+  }
+
+  .sidebar:hover {
+    width: 100%;
+  }
+
+  .sidebar:hover ~ .main-content {
+    margin-left: 0;
+  }
+
+   
+}
+
+
